@@ -32,3 +32,9 @@ Route::get('/selengkap_riwayat_bk', function () {
 Route::get('/jadwal_treatment', function () {
     return view('admin.jadwal_treatment');
 });
+Route::get('/treatment_salon', function () {
+    return view('admin.treatment_salon');
+});
+Route::get('/transaksi_pembayaran', function () {
+    return view('admin.transaksi_pembayaran');
+});

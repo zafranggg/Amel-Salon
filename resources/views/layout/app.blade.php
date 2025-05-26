@@ -14,6 +14,15 @@
     elseif (request()->is('detail_pelanggan')) {
         $title = 'Detail Pelanggan';
     }
+    elseif (request()->is('jadwal_treatment')) {
+        $title = 'Jadwal Treatment';
+    }
+    elseif (request()->is('treatment_salon')) {
+        $title = 'Treatment Salon';
+    }
+    elseif (request()->is('transaksi_pembayaran')) {
+        $title = 'Transaksi Pembayaran ';
+    }
 @endphp
 <!DOCTYPE html>
 <html lang="en">

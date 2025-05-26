@@ -70,7 +70,7 @@
 
         @section('nama')            
         <h3 class="mt-4">Data Pelanggan</h3>
-        <button class="btn-tambah" data-bs-toggle="modal" data-bs-target="#modalTambahPelanggan">
+        <button class="btn-tambah" onclick="openModal()" style="margin-left: 40px;">
           Tambah Pelanggan
         </button>
         @endsection
@@ -97,17 +97,6 @@
               <td><span class="badge-lama">Lama</span></td>
               <td><a href="{{ url('/detail_pelanggan') }}" style="text-decoration: none;" class="btn-detail">Detail</a></td>
             </tr>
-            <tr>
-              <td>2</td>
-              <td>Agela Amanda</td>
-              <td>agelaz23amanda@gmail.com</td>
-              <td>0889999999</td>
-              <td><span class="badge-baru">Baru</span></td>
-              <td><button class="btn-detail">Detail</button></td>
-            </tr>
-            <tr><td>3</td><td colspan="5"></td></tr>
-            <tr><td>4</td><td colspan="5"></td></tr>
-            <tr><td>5</td><td colspan="5"></td></tr>
           </tbody>
         </table>
 @endsection
@@ -116,13 +105,13 @@
 <!-- ... kode HTML sebelumnya tetap ... -->
 
 <!-- Modal Tambah Pelanggan -->
-<div class="modal fade" id="modalTambahPelanggan" tabindex="-1" aria-labelledby="modalTambahPelangganLabel" aria-hidden="true">
+<div class="modal" id="modalTambahPelanggan">
   <div class="modal-dialog modal-lg">
-    <div class="modal-content">
+    <div class="modal-content" style="width: 100%">
       <form id="formTambahPelanggan"> <!-- ID DITAMBAHKAN -->
         <div class="modal-header">
           <h5 class="modal-title text-danger" id="modalTambahPelangganLabel">Tambah Pelanggan Baru di Salon Kita!</h5>
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          <button type="button" class="btn-close" onclick="closeModal()"></button>
         </div>
         <div class="modal-body row g-3">
           <div class="col-md-6">
@@ -181,86 +170,36 @@
           </div>
         </div>
         <div class="modal-footer">
-          <button type="submit" class="btn btn-primary w-100">Tambah</button>
-          <button type="button" class="btn btn-secondary w-100" data-bs-dismiss="modal">Batal</button>
+          <button type="submit" class="btn btn-primary w-100" >Tambah</button>
+          <button type="button" class="btn btn-secondary w-100" onclick="closeModal()">Batal</button>
         </div>
       </form>
     </div>
   </div>
 </div>
 
-
-<!-- Modal Tambah Pelanggan -->
-<div class="modal fade" id="modalTambahPelanggan" tabindex="-1" aria-labelledby="modalTambahPelangganLabel" aria-hidden="true">
-  <div class="modal-dialog modal-lg">
-    <div class="modal-content">
-      <form id="formTambahPelanggan">
-        <div class="modal-header">
-          <h5 class="modal-title text-danger" id="modalTambahPelangganLabel">Tambah Pelanggan Baru di Salon Kita!</h5>
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-        </div>
-        <div class="modal-body row g-3">
-          <div class="col-md-6">
-            <label class="form-label">Nama Lengkap</label>
-            <input type="text" id="nama" class="form-control" placeholder="Anisa Wardani Fatimah">
-          </div>
-          <div class="col-md-6">
-            <label class="form-label">Email</label>
-            <input type="email" id="email" class="form-control" placeholder="anisawardani1234@gmail.com">
-          </div>
-          <div class="col-md-6">
-            <label class="form-label">No. HP</label>
-            <input type="text" id="nohp" class="form-control" placeholder="082345678912">
-          </div>
-          <div class="col-md-6">
-            <label class="form-label">Status</label>
-            <select id="status" class="form-control">
-              <option value="Baru">Baru</option>
-              <option value="Lama">Lama</option>
-            </select>
-          </div>
-        </div>
-        <div class="modal-footer">
-          <button type="submit" class="btn btn-primary w-100">Tambah</button>
-          <button type="button" class="btn btn-secondary w-100" data-bs-dismiss="modal">Batal</button>
-        </div>
-      </form>
-    </div>
-  </div>
-</div>
 
 <!-- Script Bootstrap -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
 
 <!-- Script Tambah Pelanggan -->
 <script>
-  let noUrut = 2;
+  function openModal() {
+    document.getElementById("modalTambahPelanggan").style.display = "block";
+  }
 
-  document.getElementById("formTambahPelanggan").addEventListener("submit", function (e) {
-    e.preventDefault();
-    const nama = document.getElementById("nama").value;
-    const email = document.getElementById("email").value;
-    const nohp = document.getElementById("nohp").value;
-    const status = document.getElementById("status").value;
+  function closeModal() {
+    document.getElementById("modalTambahPelanggan").style.display = "none";
+  }
 
-    const tabel = document.getElementById("tabelPelanggan");
-    const baris = tabel.insertRow();
+  // Tutup modal jika klik di luar
+  window.onclick = function(event) {
+    const modalTransaksi = document.getElementById("modalTambahPelanggan");
 
-    noUrut++;
-    baris.insertCell(0).innerText = noUrut;
-    baris.insertCell(1).innerText = nama;
-    baris.insertCell(2).innerText = email;
-    baris.insertCell(3).innerText = nohp;
-    baris.insertCell(4).innerHTML = status === "Baru"
-      ? '<span class="badge-baru">Baru</span>'
-      : '<span class="badge-lama">Lama</span>';
-    baris.insertCell(5).innerHTML = '<button class="btn-detail">Detail</button>';
-
-    // Reset dan tutup modal
-    e.target.reset();
-    var modal = bootstrap.Modal.getInstance(document.getElementById("modalTambahPelanggan"));
-    modal.hide();
-  });
+    if (event.target === modalTransaksi) {
+      modalTransaksi.style.display = "none";
+    }
+  }
 </script>
 <script>
   document.getElementById('formTambahPelanggan').addEventListener('submit', function (e) {

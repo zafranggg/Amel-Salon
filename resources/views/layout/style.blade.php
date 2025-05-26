@@ -1,9 +1,11 @@
   <style>
     body {
-      background-color: #f8d8dd;
-      font-family: 'Segoe UI', sans-serif;
-    }
-
+  background-color: #fcf4f5;
+  font-family: 'Abhaya Libre', serif;
+}
+h3 {
+  margin-left: 40px;
+}
     .sidebar {
       background-color: white;
       min-height: 100vh;
@@ -481,5 +483,38 @@ th:nth-child(7), td:nth-child(6) {
         grid-template-columns: 1fr;
     }
 }
+.btn-detail {
+      background-color: #ff4dc4;
+      color: white;
+      border-radius: 15px;
+    }
+    .card-info {
+      border: 1px solid #ffd1f0;
+      border-radius: 20px;
+      padding: 20px;
+    }
+    .card-purple {
+      background-color: #e4d7ff;
+      border-radius: 10px;
+      padding: 10px 20px;
+    }
+    .tab-icon {
+      font-size: 1.2rem;
+      margin-right: 6px;
+    }
+    .search-bar-top input {
+      border-radius: 20px;
+      padding-left: 35px;
+    }
+    .search-bar-top {
+      position: relative;
+      width: 300px;
+    }
+    .search-bar-top .bi-search {
+      position: absolute;
+      top: 10px;
+      left: 12px;
+      color: #aaa;
+    }
 
 </style>
