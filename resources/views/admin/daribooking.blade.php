@@ -16,19 +16,13 @@
           <h5 class="text-end text-primary mb-0">Rp 1.300.000</h5>
         </div>
 
-        <!-- Tombol Tambah Transaksi -->
-        <div class="text-end mb-3">
-<button class="btn btn-pink btn-sm btn-detail" onclick="openTransaksiModal()">
-  <i class="bi bi-plus-lg"></i> Tambah Transaksi
-</button>
-        </div>
-
         <!-- Tabs -->
-        @include('layout.tabs')
+       @include('layout.tabs')
 
-        <!-- Total -->
-        <div class="bg-success bg-opacity-25 rounded p-3 mb-3">
-          <strong>Total Pembayaran Lunas :</strong> <span class="text-success fw-bold">Rp 1.300.000</span>
+        <!-- Total Pembayaran dari Booking -->
+        <div class="bg-primary bg-opacity-25 rounded p-3 mb-3">
+          <strong>Total Pembayaran Dari Booking (Lunas) :</strong> 
+          <span class="text-primary fw-bold">Rp 1.350.000</span>
         </div>
 
         <!-- Table -->
@@ -53,7 +47,7 @@
                 <td>Transfer</td>
                 <td>Rp 300.000</td>
                 <td><span class="status-lunas">Lunas</span></td>
-                <td><button class="btn btn-sm btn-detail" onclick="openDetailModal()">Detail</button></td>
+                <td><button class="btn btn-sm btn-detail">Detail</button></td>
               </tr>
               <tr>
                 <td>2</td>
@@ -67,41 +61,7 @@
             </tbody>
           </table>
         </div>
-<!-- Modal -->
-<div class="modal" id="modalDetail">
-  <div class="modal-dialog modal-dialog-centered">
-    <div class="modal-content p-4" style="background-color: white; width: 100%;">
 
-      <div class="modal-header bg-pink text-white">
-        <h5 class="modal-title" id="modalDetailLabel" style="color: black">Detail Pembayaran Langsung</h5>
-        <button type="button" class="btn-close" onclick="closeModal()"></button>
-      </div>
-
-      <div class="modal-body">
-        <p><strong>Nama Pelanggan:</strong> Adelia Salsabila</p>
-        <p><strong>Jenis Pelanggan:</strong> Tidak Terdaftar</p>
-        <p><strong>Tanggal Transaksi:</strong> 02 April 2025</p>
-        <p><strong>Metode Pembayaran:</strong> Cash <span class="badge bg-success">Lunas</span></p>
-        <hr>
-        <p><strong>Treatment yang Dipilih:</strong></p>
-        <ul>
-          <li>Smoothing - Rp 600.000</li>
-        </ul>
-        <hr>
-        <p><strong>Subtotal:</strong> Rp 600.000</p>
-        <p><strong>DP:</strong> Rp 100.000</p>
-        <p><strong><span class="text-danger">Sisa Bayar:</span></strong> <span class="text-danger fw-bold">Rp 500.000</span></p>
-        <p><strong>Tunai:</strong> Rp 500.000</p>
-        <p><strong>Kembalian:</strong> Rp 0</p>
-      </div>
-
-      <div class="modal-footer d-flex justify-content-between">
-        <button type="button" class="btn btn-secondary" onclick="closeModal()">Kembali</button>
-        <button type="button" class="btn btn-primary">Cetak Struk</button>
-      </div>
-    </div>
-  </div>
-</div>
 <!-- Modal Transaksi Pembayaran -->
 <div class="modal" id="modalTransaksi">
   <div class="modal-dialog">
@@ -164,18 +124,14 @@
     </div>
   </div>
 </div>
-
-
-
 <script>
-  function openDetailModal() {
-    document.getElementById("modalDetail").style.display = "block";
-  }
-  function openTransaksiModal() {
+  function openModal() {
     document.getElementById("modalTransaksi").style.display = "block";
   }
 
-  
+  function openDetailModal() {
+    document.getElementById("modalDetail").style.display = "block";
+  }
 
   function closeModal() {
     document.getElementById("modalTransaksi").style.display = "none";
@@ -186,13 +142,73 @@
   window.onclick = function(event) {
     const modalTransaksi = document.getElementById("modalTransaksi");
     const modalDetail = document.getElementById("modalDetail");
-    if (event.target === modalDetail) {
-      modalDetail.style.display = "none";
-    }
+
     if (event.target === modalTransaksi) {
       modalTransaksi.style.display = "none";
     }
-    
+    if (event.target === modalDetail) {
+      modalDetail.style.display = "none";
+    }
   }
 </script>
+<script>
+  let daftar = [];
+  const daftarTreatment = document.getElementById('daftarTreatment');
+  const totalBayar = document.getElementById('totalBayar');
+
+  function formatRupiah(angka) {
+    return 'Rp ' + angka.toLocaleString('id-ID');
+  }
+
+  function tambahTreatment() {
+    const treatment = document.getElementById('treatment').value.trim();
+    const harga = parseInt(document.getElementById('harga').value);
+
+    if (treatment && !isNaN(harga) && harga > 0) {
+      daftar.push({ treatment, harga });
+      renderDaftar();
+      document.getElementById('treatment').value = '';
+      document.getElementById('harga').value = '';
+    }
+  }
+
+  function hapusTreatment(index) {
+    daftar.splice(index, 1);
+    renderDaftar();
+  }
+
+  function renderDaftar() {
+    daftarTreatment.innerHTML = '';
+    let total = 0;
+    daftar.forEach((item, index) => {
+      total += item.harga;
+      const li = document.createElement('li');
+      li.className = 'list-group-item d-flex justify-content-between align-items-center';
+      li.innerHTML = `
+        ${item.treatment} - ${formatRupiah(item.harga)}
+        <button type="button" class="btn btn-sm btn-outline-danger" onclick="hapusTreatment(${index})">
+          <i class="bi bi-trash"></i>
+        </button>
+      `;
+      daftarTreatment.appendChild(li);
+    });
+    totalBayar.textContent = formatRupiah(total);
+  }
+
+  document.getElementById('formTransaksi').addEventListener('submit', function(e) {
+    e.preventDefault();
+    const data = {
+      pelanggan: document.getElementById('namaPelanggan').value,
+      pelangganBaru: document.getElementById('pelangganBaru').checked,
+      tanggal: document.getElementById('tanggal').value,
+      metode: document.getElementById('metodePembayaran').value,
+      treatments: daftar
+    };
+
+    console.log("Data dikirim:", data);
+alert("Transaksi berhasil disimpan!");
+window.location.href = "transaksi.html";
+  });
+</script>
+
 @endsection

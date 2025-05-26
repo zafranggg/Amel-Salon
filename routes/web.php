@@ -38,3 +38,6 @@ Route::get('/treatment_salon', function () {
 Route::get('/transaksi_pembayaran', function () {
     return view('admin.transaksi_pembayaran');
 });
+Route::get('/daribooking', function () {
+    return view('admin.daribooking');
+});
