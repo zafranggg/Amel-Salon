@@ -232,10 +232,16 @@
 
 th, td {
   border: 1px solid #ff99cc;
-  padding: 6px 8px;
   text-align: center;
   vertical-align: middle;
   font-size: 14px;
+  padding: 6px 8px;
+
+  /* Tambahan agar isi menyusut ke bawah dan tidak melampaui batas */
+  word-wrap: break-word;
+  word-break: break-word;
+  overflow-wrap: break-word;
+  overflow: hidden;
 }
 
 /* Tentukan lebar kolom */
@@ -246,17 +252,21 @@ th:nth-child(2), td:nth-child(2) {
   width: 150px; /* Nama */
 }
 th:nth-child(3), td:nth-child(3) {
-  width: 230px; /* Email */
+  width: 50%; /* Email */
 }
 th:nth-child(4), td:nth-child(4) {
   width: 130px; /* No HP */
 }
 th:nth-child(5), td:nth-child(5) {
-  width: 90px; /* Status */
+  width: 50%; /* Status */
 }
-th:nth-child(6), td:nth-child(6) {
-  width: 70px; /* Aksi */
+th:nth-child(6), td:nth-child(5) {
+  width: 25%; /* Status */
 }
+th:nth-child(7), td:nth-child(6) {
+  width:30%; /* Aksi */
+}
+
 
 
     .badge-lama {

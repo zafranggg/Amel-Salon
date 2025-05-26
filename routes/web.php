@@ -20,3 +20,15 @@ Route::get('/detail_pelanggan', function () {
 Route::get('/riwayat_layanan', function () {
     return view('admin.riwayat_layanan');
 });
+Route::get('/selengkap_riwayat_tr', function () {
+    return view('admin.selengkap_riwayat_tr');
+});
+Route::get('/riwayat_booking', function () {
+    return view('admin.riwayat_booking');
+});
+Route::get('/selengkap_riwayat_bk', function () {
+    return view('admin.selengkap_riwayat_bk');
+});
+Route::get('/jadwal_treatment', function () {
+    return view('admin.jadwal_treatment');
+});

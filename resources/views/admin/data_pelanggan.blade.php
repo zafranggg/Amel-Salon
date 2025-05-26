@@ -1,24 +1,5 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <title>Data Pelanggan - Amel Salon</title>
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
-@include('layout.style') 
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
-
-</head>
-<body>
-  <div class="container-fluid">
-    <div class="row">
-      <!-- Sidebar -->
-@include('layout.sidebar') 
-      
-
-      <!-- Main Content -->
-      <div class="col-md-10">
-@include('layout.topbar') 
+@extends('layout.app')
+@section('content')    
 
         <!-- Modal Tambah Pelanggan -->
 <div class="modal fade" id="modalTambahPelanggan" tabindex="-1" aria-labelledby="modalTambahPelangganLabel" aria-hidden="true">
@@ -87,11 +68,13 @@
   </div>
 </div>
 
-
+        @section('nama')            
         <h3 class="mt-4">Data Pelanggan</h3>
         <button class="btn-tambah" data-bs-toggle="modal" data-bs-target="#modalTambahPelanggan">
           Tambah Pelanggan
         </button>
+        @endsection
+
         
 
         <table class="table mt-3">
@@ -127,11 +110,8 @@
             <tr><td>5</td><td colspan="5"></td></tr>
           </tbody>
         </table>
-      </div>
-    </div>
-  </div>
-</body>
-</html>
+@endsection
+
 
 <!-- ... kode HTML sebelumnya tetap ... -->
 

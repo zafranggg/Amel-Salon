@@ -4,8 +4,7 @@
   <a class="nav-link {{ request()->is('beranda') ? 'active' : '' }}" href="{{ url('/beranda') }}">Beranda</a>
   {{-- <a class="nav-link {{ request()->is('data_pelanggan') ? 'active' : '' }}" href="{{ url('/data_pelanggan') }}">Data Pelanggan</a> --}}
   <a class="nav-link {{ request()->is('data_pelanggan') || request()->is('detail_pelanggan') ? 'active' : '' }}" href="{{ url('/data_pelanggan') }}">Data Pelanggan</a>
-
-  <a class="nav-link {{ request()->is('riwayat_layanan') ? 'active' : '' }}" href="/riwayat_layanan">Riwayat Layanan</a>
+  <a class="nav-link {{ request()->is('riwayat_layanan') || request()->is('selengkap_riwayat_tr') || request()->is('riwayat_booking') || request()->is('selengkap_riwayat_bk') ? 'active' : '' }}" href="/riwayat_layanan">Riwayat Layanan</a>
   <a class="nav-link {{ request()->is('jadwal_treatment') ? 'active' : '' }}" href="/jadwal_treatment">Jadwal Treatment</a>
   <a class="nav-link {{ request()->is('treatment_salon') ? 'active' : '' }}" href="/treatment_salon">Treatment Salon</a>
   <a class="nav-link {{ request()->is('transaksi_pembayaran') ? 'active' : '' }}" href="/transaksi_pembayaran">Transaksi Pembayaran</a>

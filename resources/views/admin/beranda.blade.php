@@ -1,28 +1,5 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Amel Salon - Dashboard</title>
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
-@include('layout.style') 
-</head>
-
-<body>
-  <div class="container-fluid">
-    <div class="row">
-      <!-- Sidebar -->
-@include('layout.sidebar') 
-      
-
-      <!-- Main Content -->
-      <div class="col-md-10">
-        <!-- Topbar with Search -->
-@include('layout.topbar') 
-        
-
+@extends('layout.app')
+@section('content')
         <div class="px-4">
           <h1 class="section-title">Beranda</h1>
           <div class="welcome-text mb-4">👋 Selamat Datang, Admin!</div>
@@ -67,12 +44,5 @@
             </ul>
           </div>
         </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- Bootstrap JS -->
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
-</body>
-
-</html>
+@endsection
+    
