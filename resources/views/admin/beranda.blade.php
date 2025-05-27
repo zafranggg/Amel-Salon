@@ -1,4 +1,5 @@
 @extends('layout.app')
+@section('title', 'Beranda')
 @section('content')
         <div class="px-4">
           <h1 class="section-title">Beranda</h1>

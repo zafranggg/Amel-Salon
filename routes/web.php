@@ -41,3 +41,9 @@ Route::get('/transaksi_pembayaran', function () {
 Route::get('/daribooking', function () {
     return view('admin.daribooking');
 });
+Route::get('/menunggu_jadwal', function () {
+    return view('admin.menunggu_jadwal');
+});
+Route::get('/menunggu_konfirmasi', function () {
+    return view('admin.menunggu_konfirmasi');
+});

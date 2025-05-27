@@ -118,7 +118,7 @@
         <!-- Total Lunas -->
         <div class="card-purple mb-3 d-flex justify-content-between align-items-center">
           <div><i class="bi bi-cash-coin"></i> <strong>Total Pembayaran Lunas :</strong></div>
-          <h5 class="text-end text-primary mb-0">Rp 1.300.000</h5>
+          <h5 class="text-end text-primary mb-0">Rp 2.665.000</h5>
         </div>
 
         <!-- Tabs -->
@@ -126,9 +126,9 @@
 
         <!-- Total Pembayaran dari Booking -->
         <div class="card-purple mb-3 p-3 d-flex justify-content-between align-items-center"
-         style="background-color: rgba(13, 110, 253, 0.5);">
+         style="background-color: rgba(61, 13, 253, 0.5);">
           <div><i class="bi bi-cash-coin"></i> <strong>Total Pembayaran Dari Booking (Lunas) :</strong></div>
-          <h5 class="text-end  mb-0">Rp 1.300.000</h5>
+          <h5 class="text-end  mb-0">Rp 1.450.000</h5>
         </div>
 
         <!-- Table -->

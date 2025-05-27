@@ -1,4 +1,5 @@
 @extends('layout.app')
+@section('title', 'Riwayat Layanan')
 @section('content')
     @section('nama')
         

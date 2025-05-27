@@ -1,4 +1,5 @@
 @extends('layout.app')
+@section('title', 'Tranksaksi pembayaran')
 @section('content')
 @section('nama')
         <h3 class="mt-4">Transaksi Pembayaran</h3>
@@ -27,9 +28,12 @@
         @include('layout.tabs')
 
         <!-- Total -->
-        <div class="bg-success bg-opacity-25 rounded p-3 mb-3">
-          <strong>Total Pembayaran Lunas :</strong> <span class="text-success fw-bold">Rp 1.300.000</span>
+        <div class="card-purple mb-3 p-3 d-flex justify-content-between align-items-center"
+     style="background-color: rgba(25, 135, 84, 0.5);">
+          <div><i class="bi bi-cash-coin"></i> <strong>Total Pembayaran Lunas :</strong></div>
+          <h5 class="text-end  mb-0">Rp 1.300.000</h5>
         </div>
+       
 
         <!-- Table -->
         <div class="table-responsive">

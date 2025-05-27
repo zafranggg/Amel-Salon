@@ -1,5 +1,5 @@
 @extends('layout.app')
-
+@section('title', 'Treamtment Salon')
 @section('content')
 
     @section('nama')

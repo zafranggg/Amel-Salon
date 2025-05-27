@@ -2,28 +2,47 @@
     body {
   background-color: #fcf4f5;
   font-family: 'Abhaya Libre', serif;
+  width: 100%;
 }
 h3 {
   margin-left: 40px;
 }
     .sidebar {
-      background-color: white;
-      min-height: 100vh;
-      padding: 20px 10px;
-      border-right: 1px solid #eee;
-    }
+    background-color: #f8f9fa;
+    height: 100vh;
+    transition: all 0.3s ease;
+    padding: 1rem;
+  }
 
-    .sidebar .nav-link {
-      color: #000;
-      margin-bottom: 10px;
-      font-weight: 500;
-    }
+  .sidebar.collapsed {
+    width: 60px !important;
+    overflow-x: hidden;
+  }
 
-    .sidebar .nav-link.active {
-      background-color: #ff5cb3;
-      color: white;
-      border-radius: 10px;
-    }
+  .sidebar.collapsed .nav-link span,
+  .sidebar.collapsed .footer-links a span,
+  .sidebar.collapsed .brand strong {
+    display: none;
+  }
+
+  .sidebar .nav-link {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .footer-links a {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-top: 10px;
+    color: #333;
+    text-decoration: none;
+  }
+
+  .footer-links a:hover {
+    color: #000;
+  }
 
     .dashboard-card {
       background: white;
@@ -114,6 +133,7 @@ h3 {
       padding: 20px;
       background-color: white;
       border-bottom: 1px solid #eee;
+      width: 100%;
     }
 
     .section-title {
@@ -249,25 +269,27 @@ th, td {
 /* Tentukan lebar kolom */
 th:nth-child(1), td:nth-child(1) {
   width: 40px; /* No. */
-}
+} 
+/*
 th:nth-child(2), td:nth-child(2) {
-  width: 150px; /* Nama */
+  width: 150px; /* Nama 
 }
 th:nth-child(3), td:nth-child(3) {
-  width: 50%; /* Email */
+  width: 50%; /* Email 
 }
 th:nth-child(4), td:nth-child(4) {
-  width: 130px; /* No HP */
-}
+  width: 130px; /* No HP }
 th:nth-child(5), td:nth-child(5) {
-  width: 50%; /* Status */
+  width: 50%; /* Status 
 }
 th:nth-child(6), td:nth-child(5) {
-  width: 25%; /* Status */
+  width: 25%; /* Status 
 }
 th:nth-child(7), td:nth-child(6) {
-  width:30%; /* Aksi */
+  width:30%; /* Aksi 
 }
+
+*/
 
 
 
