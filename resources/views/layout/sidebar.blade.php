@@ -20,13 +20,13 @@
     <a class="nav-link {{ request()->is('treatment_salon') ? 'active' : '' }}" href="/treatment_salon">
       <i class="bi bi-scissors"></i><span>Treatment Salon</span>
     </a>
-    <a class="nav-link {{ request()->is('transaksi_pembayaran') || request()->is('daribooking') || request()->is('menunggu_jadwal') || request()->is('menunggu_konfirmasi') ? 'active' : '' }}" href="/transaksi_pembayaran">
+    <a class="nav-link {{ request()->is('transaksi_pembayaran') || request()->is('daribooking') || request()->is('menunggu_jadwal') || request()->is('menunggu_konfirmasi') || request()->is('edit_booking') ? 'active' : '' }}" href="/transaksi_pembayaran">
       <i class="bi bi-credit-card"></i><span>Transaksi Pembayaran</span>
     </a>
-    <a class="nav-link {{ request()->is('bahan_baku') ? 'active' : '' }}" href="/bahan_baku">
+    <a class="nav-link {{ request()->is('bahan_baku') || request()->is('detail_baku') || request()->is('riwayat_baku') ? 'active' : '' }}" href="{{ url('/bahan_baku') }}">
       <i class="bi bi-box-seam"></i><span>Bahan Baku</span>
     </a>
-    <a class="nav-link {{ request()->is('laporan_keuangan') ? 'active' : '' }}" href="/laporan_keuangan">
+    <a class="nav-link {{ request()->is('laporan_keuangan') || request()->is('detail_keuangan') || request()->is('riwayat_keuangan') ? 'active' : '' }}" href="/laporan_keuangan">
       <i class="bi bi-bar-chart-line"></i><span>Laporan Keuangan</span>
     </a>
     <a class="nav-link {{ request()->is('kelola_informasi_salon') ? 'active' : '' }}" href="/kelola_informasi_salon">
@@ -37,8 +37,8 @@
         <hr/>
         <div class="footer-links">
           <a href="#"><span><i class="bi bi-gear"></i>Pengaturan </span></a>
-          <a href="#"><i class="bi bi-person"></i>Profil</a>
-          <a href="#"><i class="bi bi-lock"></i>Update Password</a>
-          <a href="#" class="text-danger"><i class="bi bi-box-arrow-right"></i>Logout</a>
+          <a class="nav-link {{ request()->is('profil') ? 'active' : '' }}" href="/profil"><i class="bi bi-person"></i>Profil</a>
+          <a class="nav-link {{ request()->is('ganti_pw') ? 'active' : '' }}" href="/ganti_pw"><i class="bi bi-lock"></i>Update Password</a>
+          <a href="/login" class="text-danger"><i class="bi bi-box-arrow-right"></i>Logout</a>
         </div>
       </div>

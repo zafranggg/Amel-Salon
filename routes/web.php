@@ -47,3 +47,33 @@ Route::get('/menunggu_jadwal', function () {
 Route::get('/menunggu_konfirmasi', function () {
     return view('admin.menunggu_konfirmasi');
 });
+Route::get('/edit_booking', function () {
+    return view('admin.edit_booking');
+});
+Route::get('/bahan_baku', function () {
+    return view('admin.bahan_baku');
+});
+Route::get('/detail_baku', function () {
+    return view('admin.detail_baku');
+});
+Route::get('/riwayat_baku', function () {
+    return view('admin.riwayat_baku');
+});
+Route::get('/laporan_keuangan', function () {
+    return view('admin.laporan_keuangan');
+});
+Route::get('/riwayat_keuangan', function () {
+    return view('admin.riwayat_keuangan');
+});
+Route::get('/detail_keuangan', function () {
+    return view('admin.detail_keuangan');
+});
+Route::get('/kelola_informasi_salon', function () {
+    return view('admin.kelola_informasi_salon');
+});
+Route::get('/profil', function () {
+    return view('admin.profil');
+});
+Route::get('/ganti_pw', function () {
+    return view('admin.ganti_pw');
+});

@@ -8,11 +8,11 @@
 @include('layout.style') 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
 @yield('style')
+@yield('style1')
 
-</style>
 </head>
 <body>
-  <div class="container-fluid">
+  <div class="container-fluid main-container">
     <div class="row">
       <!-- Sidebar -->
       

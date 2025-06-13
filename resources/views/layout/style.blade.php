@@ -3,6 +3,7 @@
   background-color: #fcf4f5;
   font-family: 'Abhaya Libre', serif;
   width: 100%;
+  
 }
 h3 {
   margin-left: 40px;

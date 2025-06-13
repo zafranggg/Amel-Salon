@@ -153,13 +153,6 @@
             <label class="form-label">Confirm Password</label>
             <input type="password" class="form-control" placeholder="e.g. @AduDh7aPd9ik">
           </div>
-          <div class="col-md-6">
-            <label class="form-label">Status</label>
-            <select id="status" class="form-control"> <!-- ID DITAMBAHKAN -->
-              <option value="Baru">Baru</option>
-              <option value="Lama">Lama</option>
-            </select>
-          </div>
           <div class="col-12">
             <label class="form-label">Alamat</label>
             <textarea class="form-control" rows="2" placeholder="Blok X21 Kost Andra, Pemukiman Permata Indah, Mendalo Jambi"></textarea>
